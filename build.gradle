@@ -2,7 +2,6 @@ plugins {
     id 'java'
 }
 
-// TODO: uncomment to be able to fetch packages in your own repository
 repositories {
     mavenLocal()
     mavenCentral()
@@ -10,15 +9,15 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/ing-sis-org/PrintScript")
         credentials {
-            username = "<your-user>"
-            password = "<your-token>"
+            username = project.findProperty("gpr.user")
+            password = project.findProperty("gpr.key")
         }
     }
 }
 
 test {
     minHeapSize = "5m" // initial heap size
-    maxHeapSize = "7m" // maximum heap size
+    maxHeapSize = "8m" // maximum heap size
 }
 
 dependencies {
